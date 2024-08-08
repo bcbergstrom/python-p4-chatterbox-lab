@@ -43,7 +43,7 @@ def messages_by_id(id):
         db.session.commit()
         return make_response('', 204)
     elif request.method == 'PATCH':
-        message = Message.query.Select(id)
+        message = Message.query.get(id)
         message.body = request.json['body']
         db.session.add(message)
         db.session.commit()
